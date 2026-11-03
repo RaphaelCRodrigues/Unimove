@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/unimove";
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://raphaelcastro54321_db_user:JZKERcPMnj3J8M2O@cluster0.xkq0dt9.mongodb.net/unimove?retryWrites=true&w=majority";
 
 mongoose
   .connect(MONGO_URI)
