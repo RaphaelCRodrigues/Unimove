@@ -1,0 +1,16 @@
+
+{
+  "name": "unimove",
+  "version": "1.0.0",
+  "description": "UniMove - Sistema de Monitoramento de Transporte Universitário (MongoDB)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node seed/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.0"
+  }
+}

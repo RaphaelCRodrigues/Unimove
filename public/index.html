@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniMove — Transporte Universitário</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>UniMove</h1>
+    <p>Sistema de Monitoramento de Transporte Universitário</p>
+    <nav>
+      <button class="tab ativa" data-tab="linhas">Linhas</button>
+      <button class="tab" data-tab="veiculos">Veículos</button>
+      <button class="tab" data-tab="localizacoes">Localizações</button>
+      <button class="tab" data-tab="ocorrencias">Ocorrências</button>
+      <button class="tab" data-tab="relatorios">Relatórios</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LINHAS -->
+    <section id="linhas" class="painel ativo">
+      <h2>Linhas</h2>
+      <form id="form-linha">
+        <input name="nome" placeholder="Nome (ex: Linha 4 - Leste)" required />
+        <input name="origem" placeholder="Origem" required />
+        <input name="destino" placeholder="Destino" required />
+        <button type="submit">Cadastrar linha</button>
+      </form>
+      <table><thead>
+        <tr><th>Nome</th><th>Origem</th><th>Destino</th><th>Status</th><th></th></tr>
+      </thead><tbody id="tbl-linhas"></tbody></table>
+    </section>
+
+    <!-- VEÍCULOS -->
+    <section id="veiculos" class="painel">
+      <h2>Veículos</h2>
+      <form id="form-veiculo">
+        <input name="placa" placeholder="Placa (ABC1D23)" required />
+        <input name="modelo" placeholder="Modelo" required />
+        <input name="capacidade" type="number" placeholder="Capacidade" required />
+        <select name="linha" id="sel-linha-veiculo" required></select>
+        <button type="submit">Cadastrar veículo</button>
+      </form>
+      <table><thead>
+        <tr><th>Placa</th><th>Modelo</th><th>Linha</th><th>Estado</th><th></th></tr>
+      </thead><tbody id="tbl-veiculos"></tbody></table>
+    </section>
+
+    <!-- LOCALIZAÇÕES -->
+    <section id="localizacoes" class="painel">
+      <h2>Localizações (últimas por veículo)</h2>
+      <button id="btn-registrar-loc">Simular nova localização</button>
+      <table><thead>
+        <tr><th>Placa</th><th>Linha</th><th>Latitude</th><th>Longitude</th><th>Velocidade</th><th>Atualizado em</th></tr>
+      </thead><tbody id="tbl-loc"></tbody></table>
+    </section>
+
+    <!-- OCORRÊNCIAS -->
+    <section id="ocorrencias" class="painel">
+      <h2>Ocorrências</h2>
+      <form id="form-ocorrencia">
+        <select name="tipo" required>
+          <option value="">Tipo...</option>
+          <option>Avaria</option><option>Acidente</option>
+          <option>Atraso</option><option>Lotado</option><option>Outro</option>
+        </select>
+        <select name="veiculo" id="sel-veiculo-oc" required></select>
+        <input name="descricao" placeholder="Descrição" required style="flex:2" />
+        <button type="submit">Registrar ocorrência</button>
+      </form>
+      <div class="filtros">
+        <label>Filtrar por status:
+          <select id="filtro-status">
+            <option value="">Todos</option>
+            <option>Aberta</option><option>Em análise</option><option>Resolvida</option>
+          </select>
+        </label>
+      </div>
+      <table><thead>
+        <tr><th>Data</th><th>Tipo</th><th>Veículo</th><th>Descrição</th><th>Status</th><th></th></tr>
+      </thead><tbody id="tbl-oc"></tbody></table>
+    </section>
+
+    <!-- RELATÓRIOS -->
+    <section id="relatorios" class="painel">
+      <h2>Relatórios (agregações MongoDB)</h2>
+      <div class="cards">
+        <div class="card"><h3>Veículos por estado</h3><ul id="rel-estados"></ul></div>
+        <div class="card"><h3>Ocorrências por tipo</h3><ul id="rel-tipos"></ul></div>
+        <div class="card"><h3>Registros de localização por linha</h3><ul id="rel-locs"></ul></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Projeto acadêmico — CRUD, filtros e agregações com MongoDB</footer>
+  <script src="app.js"></script>
+</body>
+</html>
