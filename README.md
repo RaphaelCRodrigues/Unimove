@@ -1,6 +1,6 @@
 # 🚍 Unimove - Sistema de Monitoramento e Gestão de Frotas
 
-Aplicação full-stack desenvolvida em **Node.js** (com Express e Mongoose) e **MongoDB**, projetada para o controlo operacional de frotas de transporte público.
+Aplicação full-stack desenvolvida em **Node.js** (com Express - responsável por gerir a comunicação do servidor (receber os pedidos do utilizador/frontend, processar e devolver respostas) e Mongoose - responsável por conversar com a base de dados (organizar, validar e estruturar como os dados dos ônibus, linhas e ocorrências são salvos no MongoDB)) e **MongoDB**, projetada para o controlo operacional de frotas de transporte público.
 
 ## ⚙️ Arquitetura e Módulos (Models)
 O sistema está estruturado nos seguintes domínios principais localizados em `src/models/`:
