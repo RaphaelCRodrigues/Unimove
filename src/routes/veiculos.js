@@ -23,9 +23,9 @@ router.get("/", async (req, res) => {
 // Atualizar somente o estado operacional (ação frequente no painel)
 router.patch("/:id/estado", async (req, res) => {
   const veiculo = await Veiculo.findByIdAndUpdate(
-    req.params.id,
-    { estadoOperacional: req.body.estadoOperacional },
-    { new: true }
+      req.params.id,
+      { estadoOperacional: req.body.estadoOperacional },
+      { new: true }
   );
   if (!veiculo) return res.status(404).json({ erro: "Veículo não encontrado" });
   res.json(veiculo);

@@ -28,7 +28,7 @@ async function carregarLinhas() {
       </td>
     </tr>`).join("");
   document.getElementById("sel-linha-veiculo").innerHTML =
-    linhas.filter((l) => l.ativa).map((l) => `<option value="${l._id}">${l.nome}</option>`).join("");
+      linhas.filter((l) => l.ativa).map((l) => `<option value="${l._id}">${l.nome}</option>`).join("");
 }
 
 async function carregarVeiculos() {
@@ -43,7 +43,7 @@ async function carregarVeiculos() {
       </td>
     </tr>`).join("");
   document.getElementById("sel-veiculo-oc").innerHTML =
-    veiculos.map((v) => `<option value="${v._id}">${v.placa} — ${v.modelo}</option>`).join("");
+      veiculos.map((v) => `<option value="${v._id}">${v.placa} — ${v.modelo}</option>`).join("");
 }
 
 const proximoEstado = (e) => (e === "Operacional" ? "Manutenção" : e === "Manutenção" ? "Inativo" : "Operacional");
